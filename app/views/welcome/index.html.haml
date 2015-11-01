@@ -15,20 +15,22 @@
 .container
   .row
     .span10.offset1
-      %video{:controls => "true", :height => "100%", :poster => image_url("screen.png"), :preload => "none", :width => " 100%"}
-        %source{:src => "contribucion.mp4", :type => "video/mp4"}
-        %source{:src => "contribucion.webm", :type => "video/webm"}
-        %source{:src => "contribucion.ogg", :type => "video/ogg"}
-        %source{:src => "contribucion.mov", :type => "video/mov"}
-        Tu navegador no soporta el tag de video.
-  / row
+      -#
+        %video{:controls => "true", :height => "100%", :poster => image_url("screen.png"), :preload => "none", :width => " 100%"}
+          %source{:src => "contribucion.mp4", :type => "video/mp4"}
+          %source{:src => "contribucion.webm", :type => "video/webm"}
+          %source{:src => "contribucion.ogg", :type => "video/ogg"}
+          %source{:src => "contribucion.mov", :type => "video/mov"}
+          Tu navegador no soporta el tag de video.
+      .responsive-video
+        %iframe{:allowfullscreen => "", :frameborder => "0", :mozallowfullscreen => "", :src => "https://player.vimeo.com/video/144249539", :webkitallowfullscreen => ""}
 / =================== CONTENT =====================
 #footer
   .container-fluid
     .row
       .span8.offset3
         %h1.center
-          Calculá cuanto pagarías con la contribución a la seguridad.
+          Calculá cuanto pagarías con la contribución a la seguridad
         %br
         = form_tag '/calculate', remote: true, class: 'form-inline' do
           %label.text-white ¿Cuanto pagas hoy?
