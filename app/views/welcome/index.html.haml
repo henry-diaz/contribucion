@@ -15,13 +15,12 @@
 .container
   .row
     .span10.offset1
-      .black
-        %video{:controls => "true", :height => "100%", :poster => image_url("screen.png"), :preload => "none", :width => " 100%"}
-          %source{:src => "contribucion.mp4", :type => "video/mp4"}
-          %source{:src => "contribucion.webm", :type => "video/webm"}
-          %source{:src => "contribucion.ogg", :type => "video/ogg"}
-          %source{:src => "contribucion.mov", :type => "video/mov"}
-          Your browser does not support the video tag.
+      %video{:controls => "true", :height => "100%", :poster => image_url("screen.png"), :preload => "none", :width => " 100%"}
+        %source{:src => "contribucion.mp4", :type => "video/mp4"}
+        %source{:src => "contribucion.webm", :type => "video/webm"}
+        %source{:src => "contribucion.ogg", :type => "video/ogg"}
+        %source{:src => "contribucion.mov", :type => "video/mov"}
+        Tu navegador no soporta el tag de video.
   / row
 / =================== CONTENT =====================
 #footer
@@ -29,10 +28,10 @@
     .row
       .span8.offset3
         %h1.center
-          Calcula cuanto pagarías con el nuevo impuesto
+          Calculá cuanto pagarías con la contribución a la seguridad.
         %br
         = form_tag '/calculate', remote: true, class: 'form-inline' do
-          %label.text-white Ingresa tu monto:
+          %label.text-white ¿Cuanto pagas hoy?
           %input.input-medium{:placeholder => "$", :type => "text", :name => 'amount'}
           %button.btn{:type => "submit"} Calcular
         .calculate

@@ -1,22 +1,22 @@
 - if amount.to_i == 0
   .calculate
-    Por favor ingrese un número válido
+    Por favor ingrese un monto válido
 - else
   .calculate
     = 'De los'
     %strong
       = "$#{amount}"
-    = 'que pagabas, a partir de noviembre 2015 pagaras'
+    = 'que pagas, a partir del 1ro de noviembre 2015 vas a pagar'
     %strong
       = "$#{(amount.to_f - (amount.to_f * 0.13)).round(2)}"
-    = '. De ese nuevo monto, '
+    = 'porque hay una reducción del 13% a la factura de celular. De ese nuevo monto, vas a contribuir con'
     %strong
       = "$#{((amount.to_f - (amount.to_f * 0.13)) * 0.05).round(2)}"
-    = 'van para seguridad.'
+    = 'para fortalecer a la PNC y mejorar a seguridad.'
     %br
     %br
     %h2
-      = "Al final tu pagas"
+      = "Al final vas a pagar"
       %strong
         = "$#{((amount.to_f - (amount.to_f * 0.13)) * 1.05).round(2)}"
       = ". ¡Que es menos de lo que pagabas antes!"
