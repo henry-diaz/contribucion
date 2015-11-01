@@ -1,0 +1,22 @@
+- if amount.to_i == 0
+  .calculate
+    Por favor ingrese un número válido
+- else
+  .calculate
+    = 'De los'
+    %strong
+      = "$#{amount}"
+    = 'que pagabas, a partir de noviembre 2015 pagaras'
+    %strong
+      = "$#{(amount.to_f - (amount.to_f * 0.13)).round(2)}"
+    = '. De ese nuevo monto, '
+    %strong
+      = "$#{((amount.to_f - (amount.to_f * 0.13)) * 0.05).round(2)}"
+    = 'van para seguridad.'
+    %br
+    %br
+    %h2
+      = "Al final tu pagas"
+      %strong
+        = "$#{((amount.to_f - (amount.to_f * 0.13)) * 1.05).round(2)}"
+      = ". ¡Que es menos de lo que pagabas antes!"

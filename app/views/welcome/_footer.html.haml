@@ -1,0 +1,173 @@
+/ =================== CONTENT =====================
+#footer
+  .container-fluid
+    .row-fluid
+      .span4
+        %h3 COMING SOON
+        %hr/
+        %p
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pulvinar arcu arcu.
+          Proin pretium tempor luctus. Suspendisse eros eros, hendrerit interdum aliquet dapibus, interdum
+          in dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pulvinar arcu arcu.
+          Proin pretium tempor luctus. Suspendisse eros eros, hendrerit interdum aliquet dapibus, interdum
+          in dolor.
+        %hr/
+      .span4
+        %h3 HTML5
+        %hr/
+        .span3
+          = image_tag("html5.png", title: 'HTML 5')
+        .span6
+          %address
+            Written by Example.com
+            %br/
+            %a{:href => "mailto:us@example.org", :title => "my e-mail"} Email us
+            %br/
+            Address: Box 564, Videoland
+            %br/
+            Phone: +12 34 56 78
+        %hr/
+      .span4
+        %h3 SUSCRIBE FOR UPDATES
+        %hr/
+        %form.well-small
+          %input.input-100{:type => "text"}/
+          %br/
+          %button.btn.btn-inverse{:title => "Send for updates", :type => "submit"} Send
+        .social-icons
+          %ul
+            %li
+              %a.fb{:href => "http://www.facebook.com/#", :title => "Share on Facebook"}
+            %li
+              %a.tw{:href => "http://www.twitter.com/#", :title => "Share on Twitter"}
+            %li
+              %a.vi{:href => "http://www.vimeo.com/#", :title => "Share on Vimeo"}
+            %li
+              %a.yo{:href => "http://www.youtube.com/#", :title => "Share on Youtube"}
+            / <li><a class="tu" href="www.tuenti.com/#" title="Share on Tuenti"></a></li>
+        %hr/
+  .container-fluid
+    .row-fluid
+      .span4.offset5
+        %a{:href => "#", :title => "Copyrigth@212"} Orange theme
+  / ================= MODAL  CONTACT ===================
+  #contact.modal.hide
+    .modal-header
+      %button.close{"data-dismiss" => "modal", :type => "button"} X
+      %h2 CONTACT
+    .modal-body
+      :javascript
+        //email form validation
+
+        function everif(str) {
+
+            var at="@"
+            var punct="."
+            var lat=str.indexOf(at)
+            var lstr=str.length
+            var lpunct=str.indexOf(punct)
+            if (str.indexOf(at)==-1){
+               alert("Valid email must be entered")
+               return false
+            }
+
+            if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
+               alert("Valid email must be entered")
+               return false
+            }
+
+            if (str.indexOf(punct)==-1 || str.indexOf(punct)==0 || str.indexOf(punct)==lstr){
+                alert("Valid email must be entered")
+                return false
+            }
+
+             if (str.indexOf(at,(lat+1))!=-1){
+                alert("Valid email must be entered")
+                return false
+             }
+
+             if (str.substring(lat-1,lat)==punct || str.substring(lat+1,lat+2)==punct){
+                alert("Valid email must be entered")
+                return false
+             }
+
+             if (str.indexOf(punct,(lat+2))==-1){
+                alert("Valid email must be entered")
+                return false
+             }
+
+             if (str.indexOf(" ")!=-1){
+                alert("Valid email must be entered")
+                return false
+             }
+
+             return true
+          }
+
+        function evalid(){
+          var emailID=document.contact_form.mail
+
+          if (everif(emailID.value)==false){
+            emailID.focus()
+            return false
+          }
+
+        //empty field validation
+
+          var fname=document.contact_form.fname
+          if ((fname.value==null)||(fname.value=="")){
+                alert("Fields marqued with * must be entered")
+                fname.focus()
+                return false
+                }
+
+          var subject=document.contact_form.subject
+          if ((subject.value==null)||(subject.value=="")){
+                alert("Fields marqued with * must be entered")
+                subject.focus()
+                return false
+                }
+
+          var message=document.contact_form.message
+          if ((message.value==null)||(message.value=="")){
+                alert("Fields marqued with * must be entered")
+                message.focus()
+                return false
+                }
+
+          return true
+         }
+      %form.well-small{:action => "mailer.php", :method => "post", :name => "contact_form", :onsubmit => "return evalid()"}
+        %label Name
+        %input.span5{:name => "fname", :placeholder => "Name", :type => "text"}/
+        %label Email Address
+        %input.span5{:name => "mail", :placeholder => "email@email.com", :type => "text"}/
+        %label Phone Number
+        %input.span5{:name => "phone", :placeholder => "eg. 666-777-8888", :type => "text"}/
+        %label Message
+        %textarea#textarea.input-xlarge.span5{:name => "message", :onkeyup => "return limitarelungime(this, 255)", :placeholder => "your message here.", :rows => "6"}
+        %br/
+        %input.btn.btn-inverse{:name => "Submit", :type => "submit", :value => "Submit"}/
+  / ================= MODAL ABOUT ====================
+  #about.modal.hide
+    .modal-header
+      %button.close{"data-dismiss" => "modal", :type => "button"} X
+      %h2 About me
+    .modal-body
+      %ul.thumbnails
+        %li.span3
+          .thumbnail
+            %img{:alt => "", :src => "http://placehold.it/260x180"}/
+      %h5 Lorem ipsum dolor
+      %p
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pulvinar arcu arcu.
+        Proin pretium tempor luctus. Suspendisse eros eros, hendrerit interdum aliquet dapibus, interdum
+        in dolor. Maecenas nisl felis, consectetur non ornare et, fermentum non arcu. Quisque at pellentesque
+        augue. Quisque odio risus, sodales a eleifend sed, vulputate ut erat. Sed et scelerisque nisi. Aliquam
+        eu nsi lorem, id facilisis libero. Proin posuere est in erat dignissim at convallis sem pharetra. Nunc
+        purus est, sagittis quis porta consequat, fringilla non urna.
+  / =================== JAVA =====================
+  :javascript
+    $(function(){
+          $('.span4 [title]').tooltip()
+      });

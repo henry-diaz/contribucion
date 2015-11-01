@@ -1,0 +1,16 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    / The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    %title Contribución a la seguridad
+    / Bootstrap
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    %link{:href => "http://fonts.googleapis.com/css?family=Vollkorn:700italic", :rel => "stylesheet", :type => "text/css"}/
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+    = csrf_meta_tags
+  %body#inicio
+    = yield

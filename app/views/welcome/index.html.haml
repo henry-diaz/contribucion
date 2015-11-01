@@ -1,0 +1,38 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      %a.brand{:href => "/"} Contribución a la seguridad
+      -#
+        %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        .nav-collapse
+          %ul.nav
+            %li.active
+              %a{:href => "/"} Inicio
+/ =================== SLIDE  =====================
+.container
+  .row
+    .span10.offset1
+      .black
+        %video{:controls => "true", :height => "100%", :poster => image_url("screen.png"), :preload => "none", :width => " 100%"}
+          %source{:src => "contribucion.mp4", :type => "video/mp4"}
+          %source{:src => "contribucion.webm", :type => "video/webm"}
+          %source{:src => "contribucion.ogg", :type => "video/ogg"}
+          %source{:src => "contribucion.mov", :type => "video/mov"}
+          Your browser does not support the video tag.
+  / row
+/ =================== CONTENT =====================
+#footer
+  .container-fluid
+    .row
+      .span8.offset3
+        %h1.center
+          Calcula cuanto pagarías con el nuevo impuesto
+        %br
+        = form_tag '/calculate', remote: true, class: 'form-inline' do
+          %label.text-white Ingresa tu monto:
+          %input.input-medium{:placeholder => "$", :type => "text", :name => 'amount'}
+          %button.btn{:type => "submit"} Calcular
+        .calculate
